@@ -2,6 +2,8 @@
 
 Distware is an open-source licensing server (created using [PHP](https://www.php.net) and [Laravel](https://laravel.com)) for generating and validating software keys/licenses as well as distributing software updates.
 
+![Distware](.github/screenshot.png "Dashboard")
+
 ## Prepare
 
 If you wish to use SSL for local development (recommended), you need to have [mkcert](https://github.com/FiloSottile/mkcert) installed on your machine.
