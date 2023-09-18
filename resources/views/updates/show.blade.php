@@ -76,6 +76,10 @@
                                 @endif
                             </td>
                         </tr>
+                        <tr>
+                            <th class="bg-light">{{ __('Downloads') }}</th>
+                            <td class="w-100">{{ $update->downloads }}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

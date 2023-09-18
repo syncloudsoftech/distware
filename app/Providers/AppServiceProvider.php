@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\License;
 use App\Models\Plan;
+use App\Models\Update;
 use App\Models\User;
 use App\Observers\LicenseObserver;
 use App\Observers\PlanObserver;
+use App\Observers\UpdateObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
     {
         License::observe(LicenseObserver::class);
         Plan::observe(PlanObserver::class);
+        Update::observe(UpdateObserver::class);
         User::observe(UserObserver::class);
     }
 }

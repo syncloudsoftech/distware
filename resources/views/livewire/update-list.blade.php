@@ -65,16 +65,27 @@
                 <th class="bg-light">#</th>
                 <th class="bg-light">
                     @if (($order['version'] ?? null) === 'asc')
-                        <a class="text-body" href="" wire:click.prevent="sort('version', 'desc')">{{ __('Name') }}</a>
+                        <a class="text-body" href="" wire:click.prevent="sort('version', 'desc')">{{ __('Version') }}</a>
                         <i class="fa-solid fa-sort-amount-down-alt ms-1"></i>
                     @elseif (($order['version'] ?? null) === 'desc')
-                        <a class="text-body" href="" wire:click.prevent="sort('version', false)">{{ __('Name') }}</a>
+                        <a class="text-body" href="" wire:click.prevent="sort('version', false)">{{ __('Version') }}</a>
                         <i class="fa-solid fa-sort-amount-down ms-1"></i>
                     @else
-                        <a class="text-body" href="" wire:click.prevent="sort('version', 'asc')">{{ __('Name') }}</a>
+                        <a class="text-body" href="" wire:click.prevent="sort('version', 'asc')">{{ __('Version') }}</a>
                     @endif
                 </th>
                 <th class="bg-light">{{ __('Published?') }}</th>
+                <th class="bg-light">
+                    @if (($order['downloads'] ?? null) === 'asc')
+                        <a class="text-body" href="" wire:click.prevent="sort('downloads', 'desc')">{{ __('Downloads') }}</a>
+                        <i class="fa-solid fa-sort-amount-down-alt ms-1"></i>
+                    @elseif (($order['downloads'] ?? null) === 'desc')
+                        <a class="text-body" href="" wire:click.prevent="sort('downloads', false)">{{ __('Downloads') }}</a>
+                        <i class="fa-solid fa-sort-amount-down ms-1"></i>
+                    @else
+                        <a class="text-body" href="" wire:click.prevent="sort('downloads', 'asc')">{{ __('Downloads') }}</a>
+                    @endif
+                </th>
                 <th class="bg-light">
                     @if (($order['created_at'] ?? null) === 'asc')
                         <a class="text-body" href="" wire:click.prevent="sort('created_at', 'desc')">{{ __('Created at') }}</a>
@@ -111,6 +122,7 @@
                             </span>
                         @endif
                     </td>
+                    <td>{{ $update->downloads }}</td>
                     <td>{{ Timezone::convertToLocal($update->created_at) }}</td>
                     <td>
                         @can('view', $update)
@@ -137,7 +149,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="text-center text-muted" colspan="5">
+                    <td class="text-center text-muted" colspan="6">
                         {{ __('Could not find any updates to show.') }}
                     </td>
                 </tr>

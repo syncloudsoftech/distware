@@ -144,6 +144,8 @@ class UpdateController extends Controller
     {
         abort_if(! $update->published, 404);
 
+        $update->increment('downloads');
+
         return response()
             ->download(
                 $installer->getPath(),

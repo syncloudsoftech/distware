@@ -57,10 +57,10 @@
             </a>
         </div>
         <div class="col-md-6 col-lg-4 col-xl-3">
-            <a class="btn btn-secondary w-100 p-3 mb-3" href="{{ route('plans.index') }}">
+            <a class="btn btn-secondary w-100 p-3 mb-3" href="{{ route('updates.index') }}">
                 <div class="d-flex justify-content-between">
-                    <i class="fa-solid fa-boxes-stacked fa-fw fa-2x"></i>
-                    <span class="h5 mb-0 align-self-center">{{ __(':count Plans', ['count' => App\Models\Plan::query()->count()]) }}</span>
+                    <i class="fa-solid fa-download fa-fw fa-2x"></i>
+                    <span class="h5 mb-0 align-self-center">{{ __(':count Downloads', ['count' => App\Models\Update::query()->sum('downloads')]) }}</span>
                 </div>
             </a>
         </div>
