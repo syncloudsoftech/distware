@@ -55,9 +55,9 @@ $.fn.extend({
                 container: this,
                 placeholder: placeholder,
                 getSources({ query: q }) {
-                    return [{
+                    return $this.data('indices').map((index) => ({
                         getItems() {
-                            return axios.get(source, { params: { q } })
+                            return axios.get(source, { params: { index, q } })
                                 .then(({ data }) => data.data);
                         },
                         getItemUrl({ item }) {
@@ -66,21 +66,21 @@ $.fn.extend({
                         onSelect({ item }) {
                             $this.trigger('change', item);
                         },
-                        sourceId: 'primary',
+                        sourceId: index + '-source',
                         templates: {
                             header({ html, items }) {
                                 if (items.length) {
                                     return html`
-                                        <p class="small text-muted text-center">Showing ${items.length} results.</p>
+                                        <p class="small text-muted text-center">Showing ${items.length} ${index}.</p>
                                     `;
                                 }
                             },
                             noResults({ html }) {
-                                return html`<p class="small text-muted text-center mb-0">No results found.</p>`;
+                                return html`<p class="small text-muted text-center mb-0">No ${index} found.</p>`;
                             },
                             ...templates,
                         },
-                    }];
+                    }));
                 },
             });
         });

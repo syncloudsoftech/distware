@@ -24,6 +24,7 @@ class LicenseResource extends JsonResource
             'expires_at' => $this->expires_at->toIso8601String(),
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),
+            '_model' => $this->getMorphClass(),
         ];
     }
 }

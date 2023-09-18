@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\License;
 use App\Models\User;
 
 return [
@@ -135,6 +136,10 @@ return [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY'),
         'index-settings' => [
+            License::class => [
+                'filterableAttributes' => ['id', 'name', 'email', 'phone', 'code', 'notes'],
+                'sortableAttributes' => ['created_at'],
+            ],
             User::class => [
                 'filterableAttributes' => ['id', 'name', 'email'],
                 'sortableAttributes' => ['created_at'],

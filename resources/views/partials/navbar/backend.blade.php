@@ -59,7 +59,7 @@
                 </li>
             </ul>
             <div class="d-none d-lg-flex me-auto" role="search">
-                <div id="search-navbar" aria-label="{{ __('Search') }}"></div>
+                <div id="search-navbar" data-indices='["licenses", "users"]' aria-label="{{ __('Search') }}"></div>
             </div>
             <ul class="navbar-nav d-none d-md-inline-block me-md-3">
                 <li class="nav-item dropdown">
@@ -92,29 +92,50 @@
         document.addEventListener('DOMContentLoaded', function () {
             $('#search-navbar').search({
                 source: '{{ route('dashboard.search') }}',
-                placeholder: '{{ __('Type name or email...') }}',
+                placeholder: '{{ __('Type name or code...') }}',
                 item({ item, components, html }) {
-                    return html`
-                    <div class="d-flex flex-row gap-2 align-top">
-                        ${item.photo ? (
-                        html`<img alt="${item.name}" src="${item.photo}" width="32" height="32">`
-                    ) : (
-                        html`<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <rect width="100%" height="100%" fill="#eeeeee"></rect>
-                            </svg>`
-                    )}
-                        <div class="d-flex flex-column gap-1">
-                            <div class="aa-ItemContentTitle">
-                                ${components.Highlight({ hit: item, attribute: 'name' })}
+                    console.log(item);
+                    if (item._model === 'App\\Models\\License') {
+                        return html`<div class="d-flex flex-row gap-2 align-top">
+                            <div class="d-flex flex-column gap-1">
+                                <div class="aa-ItemContentTitle font-monospace">
+                                    ${components.Highlight({ hit: item, attribute: 'code' })}
+                                </div>
+                                <div class="aa-ItemContentDescription">
+                                    ${components.Snippet({ hit: item, attribute: 'email' })}
+                                </div>
                             </div>
-                            <div class="aa-ItemContentDescription">
-                                ${components.Snippet({ hit: item, attribute: 'email' })}
+                        </div>`;
+                    }
+
+                    if (item._model === 'App\\Models\\User') {
+                        return html`<div class="d-flex flex-row gap-2 align-top">
+                            ${item.photo ? (
+                                html`<img alt="${item.name}" src="${item.photo}" width="32" height="32">`
+                            ) : (
+                                html`<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#eeeeee"></rect>
+                                </svg>`
+                            )}
+                            <div class="d-flex flex-column gap-1">
+                                <div class="aa-ItemContentTitle">
+                                    ${components.Highlight({ hit: item, attribute: 'name' })}
+                                </div>
+                                <div class="aa-ItemContentDescription">
+                                    ${components.Snippet({ hit: item, attribute: 'email' })}
+                                </div>
                             </div>
-                        </div>
-                    </div>`;
+                        </div>`;
+                    }
                 },
-            }).on('change', function (e, user) {
-                location.href = route('users.show', user.id);
+            }).on('change', function (e, item) {
+                if (item._model === 'App\\Models\\License') {
+                    location.href = route('licenses.show', item.id);
+                }
+
+                if (item._model === 'App\\Models\\User') {
+                    location.href = route('users.show', item.id);
+                }
             });
         });
     </script>

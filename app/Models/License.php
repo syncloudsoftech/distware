@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 use Quarks\Laravel\Auditors\HasAuditors;
 use Quarks\Laravel\Locking\LocksVersion;
 use Spatie\Activitylog\LogOptions;
@@ -13,7 +14,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class License extends Model
 {
-    use HasAuditors, HasFactory, LocksVersion, LogsActivity;
+    use HasAuditors, HasFactory, LocksVersion, LogsActivity, Searchable;
 
     /**
      * The attributes that should be cast.
