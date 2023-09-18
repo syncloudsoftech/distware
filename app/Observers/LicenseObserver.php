@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\License;
+use App\Models\Machine;
 use Illuminate\Support\Str;
 
 class LicenseObserver
@@ -38,6 +39,17 @@ class LicenseObserver
     public function updated(License $license): void
     {
         //
+    }
+
+    /**
+     * Handle the License "deleting" event.
+     */
+    public function deleting(License $license): void
+    {
+        $license->machines()
+            ->each(function (Machine $machine) {
+                $machine->delete();
+            });
     }
 
     /**
