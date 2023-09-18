@@ -2,22 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchRequest;
 use App\Http\Resources\LicenseResource;
 use App\Http\Resources\UserResource;
 use App\Models\License;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class DashboardController extends Controller
 {
-    public function search(Request $request)
+    public function search(SearchRequest $request)
     {
-        $data = $this->validate($request, [
-            'index' => ['required', 'string', Rule::in(['licenses', 'users'])],
-            'q' => ['nullable', 'string'],
-        ]);
-
+        $data = $request->validated();
         $query = match ($data['index']) {
             'licenses' => License::search($data['q'] ?: ''),
             'users' => User::search($data['q'] ?: ''),

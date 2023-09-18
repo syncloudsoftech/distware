@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home')->name('home');
+Route::post('/', [Controllers\HomeController::class, 'download'])->name('download');
 
 Auth::routes([
     'register' => false,

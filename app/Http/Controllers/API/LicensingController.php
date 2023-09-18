@@ -26,6 +26,7 @@ class LicensingController extends Controller
         /** @var License|null $license */
         $license = License::query()
             ->where('code', $data['license'])
+            ->where('expires_at', '>=', now())
             ->where('status', '!=', 'revoked')
             ->first();
         if (! $license) {
@@ -75,6 +76,7 @@ class LicensingController extends Controller
         /** @var License|null $license */
         $license = License::query()
             ->where('code', $data['license'])
+            ->where('expires_at', '>=', now())
             ->where('status', '!=', 'revoked')
             ->first();
         if (! $license) {
@@ -108,6 +110,7 @@ class LicensingController extends Controller
         /** @var License|null $license */
         $license = License::query()
             ->where('code', $data['license'])
+            ->where('expires_at', '>=', now())
             ->where('status', '!=', 'revoked')
             ->first();
         if (! $license) {
