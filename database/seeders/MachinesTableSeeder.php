@@ -15,7 +15,7 @@ class MachinesTableSeeder extends Seeder
     public function run(): void
     {
         $licences = License::query()->get();
-        Machine::factory(25)
+        Machine::factory(50)
             ->state(new Sequence(
                 fn (Sequence $sequence) => ['license_id' => $licences->random()->getKey()],
             ))

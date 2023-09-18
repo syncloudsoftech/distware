@@ -20,6 +20,7 @@ class UpdateFactory extends Factory
             'version' => fake()->unique()->semver(),
             'changelog' => fake()->boolean ? fake()->paragraph : null,
             'published' => fake()->boolean(75),
+            'downloads' => fake()->boolean(75) ? fake()->numberBetween(0, 999) : null,
         ];
     }
 }

@@ -11,7 +11,9 @@ class UpdateObserver
      */
     public function creating(Update $update): void
     {
-        $update->downloads = 0;
+        if (is_null($update->downloads)) {
+            $update->downloads = 0;
+        }
     }
 
     /**
