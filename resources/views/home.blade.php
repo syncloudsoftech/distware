@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container my-auto py-3">
+    <div class="container my-auto py-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 @include('flash::message')
