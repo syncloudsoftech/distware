@@ -22,15 +22,15 @@
 @endpush
 
 @section('content')
-    <div class="card border-0 shadow mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ __('Dashboard') }}</h5>
-            <p class="card-text">
-                {{ __('Hey :name, you are now logged in!', ['name' => strtolower(Auth::user()->name)]) }}
-                {{ Illuminate\Foundation\Inspiring::quotes()->random() }}
-            </p>
+    @php
+        $update = App\Models\Update::query()->where('published', true)->latest()->first();
+    @endphp
+    @if ($update)
+        <div class="alert alert-dark alert-important" role="alert">
+            {{ __('Latest version is :version, released on :created_at i.e., :difference.', ['version' => $update->version, 'created_at' => Timezone::convertToLocal($update->created_at), 'difference' => $update->created_at->diffForHumans()]) }}
+            <a class="alert-link" href="{{ route('updates.show', $update) }}">{{ __('Click here') }}</a> to download.
         </div>
-    </div>
+    @endif
     <div class="row">
         <div class="col-md-6 col-lg-4 col-xl-3">
             <a class="btn btn-secondary w-100 p-3 mb-3" href="{{ route('licenses.index') }}">
