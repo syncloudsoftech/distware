@@ -1,7 +1,6 @@
-# vaibhavpandeyvpz/starter-laravel
+# distware
 
-Quick, [Laravel](https://laravel.com/) CRUD boilerplate using [Livewire](https://laravel-livewire.com/) with [RBAC](https://spatie.be/docs/laravel-permission/v3/introduction).
-Uses [Docker](https://www.docker.com) for local development & production deployments, has better auth views based on [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/), nicely integrates [Select2](https://select2.org/) and [Flatpickr](https://flatpickr.js.org/) as well.
+Distware is an open-source licensing server (created using [PHP](https://www.php.net) and [Laravel](https://laravel.com)) for generating and validating software keys/licenses as well as distributing software updates.
 
 ## Prepare
 
@@ -25,10 +24,10 @@ Then simply download or clone the code and run below commands in project folder:
 
 ```shell
 # start the services
-$ docker-compose up -d
+$ docker compose up -d
 
 # spawn a shell in web container
-$ docker-compose exec web bash
+$ docker compose exec web bash
 
 # install dependencies
 $ composer install && yarn install && yarn build
@@ -87,7 +86,7 @@ Some additional configuration described below may be needed for extended functio
 
 ### File uploads
 
-Before uploading files, you may need to log in to [MinIO](https://min.io/) console at [https://minio.local.dev/](https://minio.local.dev/) using `laraveldev` as both (username and password) and create a bucket named `laraveldev`.
+Before uploading files, you may need to log in to [MinIO](https://min.io/) console at [https://minio.local.dev/](https://minio.local.dev/) using `distware` as both (username and password) and create a bucket named `distware`.
 Once created, go to bucket's settings and change its **Access Policy** to `Public`.
 
 ### Ngrok
@@ -117,8 +116,8 @@ You can deploy the project into production (using [Docker](https://www.docker.co
 
 ```shell
 # build production container
-$ docker build -t laraveldev .
+$ docker build -t distware .
 
 # push image to registry
-$ docker push laraveldev
+$ docker push distware
 ```

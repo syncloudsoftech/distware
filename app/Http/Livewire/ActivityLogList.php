@@ -20,7 +20,7 @@ class ActivityLogList extends Component
 
     public function render()
     {
-        $activities = $this->model->activities()->latest()->paginate(10);
+        $activities = $this->model->activities()->latest()->paginate(5);
 
         return view('livewire.activity-log-list', compact('activities'));
     }

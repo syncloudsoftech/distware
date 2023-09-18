@@ -15,10 +15,7 @@
     <form action="{{ route('password.confirm') }}" method="post">
         @csrf
         <div class="mb-3">
-            <label class="form-label" for="confirm-password">
-                {{ __('Password') }} <span class="text-danger">&ast;</span>
-            </label>
-            <input autofocus class="form-control form-control-lg @error('password') is-invalid @enderror" id="confirm-password" name="password" required type="password">
+            <input autofocus class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Password') }}" required type="password">
             @error('password')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror

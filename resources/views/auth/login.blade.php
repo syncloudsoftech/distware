@@ -23,19 +23,15 @@
     <form action="{{ route('login') }}" method="post">
         @csrf
         <div class="mb-3">
-            <label class="form-label" for="login-email">
-                {{ __('Email address') }} <span class="text-danger">&ast;</span>
-            </label>
-            <input autofocus class="form-control form-control-lg @error('email') is-invalid @enderror" id="login-email" name="email" required type="email" value="{{ old('email') }}">
+            <!--suppress HtmlFormInputWithoutLabel -->
+            <input autofocus class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" placeholder="{{ __('Email address') }}" required type="email" value="{{ old('email') }}">
             @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-1">
-            <label class="form-label" for="login-password">
-                {{ __('Password') }} <span class="text-danger">&ast;</span>
-            </label>
-            <input class="form-control form-control-lg @error('password') is-invalid @enderror" id="login-password" name="password" type="password">
+            <!--suppress HtmlFormInputWithoutLabel -->
+            <input class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Password') }}" type="password">
             @error('password')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror

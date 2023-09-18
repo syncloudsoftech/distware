@@ -14,18 +14,33 @@ class RolesTableSeeder extends Seeder
     {
         /** @var Role $administrator */
         $administrator = Role::query()->firstOrCreate(['name' => 'Administrator']);
-        $administrator->syncPermissions(
+        $administrator->givePermissionTo(
             'access horizon',
+            'delete license',
+            'create plan',
+            'update plan',
+            'delete plan',
             'view all roles',
             'view role',
             'create role',
             'update role',
             'delete role',
+            'create update',
+            'update update',
+            'delete update',
             'delete user'
         );
         /** @var Role $staff */
         $staff = Role::query()->firstOrCreate(['name' => 'Staff']);
-        $staff->syncPermissions(
+        $staff->givePermissionTo(
+            'view all licenses',
+            'view license',
+            'create license',
+            'update license',
+            'view all plans',
+            'view plan',
+            'view all updates',
+            'view update',
             'view all users',
             'view user',
             'create user',

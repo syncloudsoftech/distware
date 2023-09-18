@@ -5,7 +5,7 @@
                 <span class="visually-hidden">{{ __('Loading') }}&hellip;</span>
             </div>
             @can('create', App\Models\User::class)
-                <a class="btn btn-success ms-3" href="{{ route('users.create') }}">
+                <a class="btn btn-secondary ms-3" href="{{ route('users.create') }}">
                     <i class="fa-solid fa-plus"></i> <span class="d-none d-sm-inline ms-1">{{ __('New') }}</span>
                 </a>
             @endcan

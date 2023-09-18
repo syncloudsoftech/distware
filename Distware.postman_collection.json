@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "fc71786c-20a7-4eed-83dd-65b73a5b7f73",
+		"name": "Distware",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16000625",
+		"_collection_link": "https://dark-crater-512087.postman.co/workspace/Syncloud-Softech~25e57456-8960-4ddf-b3ff-181502f2b8f2/collection/16000625-fc71786c-20a7-4eed-83dd-65b73a5b7f73?action=share&source=collection_link&creator=16000625"
+	},
+	"item": [
+		{
+			"name": "Licensing",
+			"item": [
+				{
+					"name": "Activate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"license\": \"{{LicenseCode}}\",\n    \"machine\": \"{{MachineFingerprint}}\",\n    \"platform\": \"Windows 11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/licensing/activate",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"licensing",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Heartbeat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"license\": \"{{LicenseCode}}\",\n    \"machine\": \"{{MachineFingerprint}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/licensing/heartbeat",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"licensing",
+								"heartbeat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"license\": \"{{LicenseCode}}\",\n    \"machine\": \"{{MachineFingerprint}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/licensing/updates?platform=windows",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"licensing",
+								"updates"
+							],
+							"query": [
+								{
+									"key": "platform",
+									"value": "windows"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://web.local.dev",
+			"type": "string"
+		},
+		{
+			"key": "LicenseCode",
+			"value": "zqzvjd-s9g8kf-2hn",
+			"type": "string"
+		},
+		{
+			"key": "MachineFingerprint",
+			"value": "6b18a304-ba3d-47f4-8ce4-107b9bbee5f0",
+			"type": "string"
+		}
+	]
+}

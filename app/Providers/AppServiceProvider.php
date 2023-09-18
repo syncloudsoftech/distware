@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\License;
 use App\Models\User;
+use App\Observers\LicenseObserver;
 use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        License::observe(LicenseObserver::class);
         User::observe(UserObserver::class);
     }
 }

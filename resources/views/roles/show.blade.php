@@ -25,7 +25,7 @@
         'message' => __('Do you really want to delete this role?'),
     ])
     <div class="row">
-        <div class="col-lg-8 col-xl-9">
+        <div class="col-lg-8">
             <div class="card border-0 shadow mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ __('Details') }}</h5>
@@ -85,7 +85,7 @@
                 <livewire:activity-log-list :model="$role" />
             </div>
         </div>
-        <div class="col-lg-4 col-xl-3">
+        <div class="col-lg-4">
             @include('partials.auditors', ['model' => $role])
         </div>
     </div>

@@ -25,7 +25,7 @@
         'message' => __('Do you really want to delete this user?'),
     ])
     <div class="row">
-        <div class="col-lg-8 col-xl-9">
+        <div class="col-lg-8">
             <div class="card border-0 shadow mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{ __('Details') }}</h5>
@@ -100,6 +100,10 @@
                                 @endif
                             </td>
                         </tr>
+                        <tr>
+                            <th class="bg-light">{{ __('Timezone') }}</th>
+                            <td class="w-100">{{ $user->timezone }}</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -114,7 +118,7 @@
                 <livewire:activity-log-list :model="$user" />
             </div>
         </div>
-        <div class="col-lg-4 col-xl-3">
+        <div class="col-lg-4">
             @include('partials.auditors', ['model' => $user])
         </div>
     </div>

@@ -15,10 +15,8 @@
         @csrf
         <input type="hidden" name="token" value="{{ request('token') }}">
         <div class="mb-3">
-            <label class="form-label" for="reset-email">
-                {{ __('Email address') }} <span class="text-danger">&ast;</span>
-            </label>
-            <input autofocus class="form-control form-control-lg @error('email') is-invalid @enderror" id="reset-email" name="email" required type="email" value="{{ old('email', request('email')) }}">
+            <!--suppress HtmlFormInputWithoutLabel -->
+            <input autofocus class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" placeholder="{{ __('Email address') }}" required type="email" value="{{ old('email', request('email')) }}">
             @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -26,10 +24,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label class="form-label" for="reset-password">
-                        {{ __('Password') }} <span class="text-danger">&ast;</span>
-                    </label>
-                    <input class="form-control form-control-lg @error('password') is-invalid @enderror" id="reset-password" name="password" required type="password">
+                    <!--suppress HtmlFormInputWithoutLabel -->
+                    <input class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Password') }}" required type="password">
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -37,10 +33,8 @@
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label class="form-label" for="reset-password-confirmation">
-                        {{ __('Confirm password') }} <span class="text-danger">&ast;</span>
-                    </label>
-                    <input class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" id="reset-password-confirmation" name="password_confirmation" required type="password">
+                    <!--suppress HtmlFormInputWithoutLabel -->
+                    <input class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" name="password_confirmation" placeholder="{{ __('Confirm password') }}" required type="password">
                     @error('password_confirmation')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

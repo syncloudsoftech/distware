@@ -6,6 +6,7 @@ import { Tooltip } from 'bootstrap';
 import flatpickr from 'flatpickr';
 import $ from 'jquery';
 import select2 from 'select2';
+import 'trumbowyg';
 import './bootstrap';
 
 Alpine.plugin(collapse);
@@ -25,6 +26,17 @@ $.fn.extend({
                 altFormat: 'd/m/Y',
                 enableTime: false,
                 dateFormat: 'Y-m-d',
+            });
+        });
+    },
+    datetimepicker() {
+        return this.each(function() {
+            flatpickr(this, {
+                allowInput: true,
+                altInput: true,
+                altFormat: 'd/m/Y H:i',
+                enableTime: true,
+                dateFormat: 'Y-m-d H:i:00',
             });
         });
     },
@@ -73,6 +85,21 @@ $.fn.extend({
             });
         });
     },
+    wysiwyg() {
+        return this.each(function() {
+            $(this).trumbowyg({
+                autogrow: true,
+                btns: [
+                    ['strong', 'em'],
+                    ['unorderedList', 'orderedList'],
+                    ['link'],
+                    ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                    ['fullscreen'],
+                ],
+                svgPath: trumbowyg_icons,
+            });
+        });
+    },
 });
 
 $('.alert:not(.alert-important)')
@@ -114,7 +141,11 @@ if (opened) {
 
 $('[data-widget="datepicker"]').datepicker();
 
+$('[data-widget="datetimepicker"]').datetimepicker();
+
 $('[data-widget="dropdown"]').dropdown();
+
+$('[data-widget="wysiwyg"]').wysiwyg();
 
 ([].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]')))
     .forEach((el) => new Tooltip(el));

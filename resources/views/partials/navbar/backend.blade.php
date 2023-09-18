@@ -11,15 +11,36 @@
                         {{ __('Dashboard') }}
                     </a>
                 </li>
-                @can('viewAny', App\Models\User::class)
+                @can('viewAny', App\Models\License::class)
                     <li class="nav-item">
+                        <a class="nav-link @if (Route::is('licenses.*')) active @endif" href="{{ route('licenses.index') }}">
+                            {{ __('Licenses') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('viewAny', App\Models\Update::class)
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link @if (Route::is('updates.*')) active @endif" href="{{ route('updates.index') }}">
+                            {{ __('Software updates') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('viewAny', App\Models\Plan::class)
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link @if (Route::is('plans.*')) active @endif" href="{{ route('plans.index') }}">
+                            {{ __('Pricing plans') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('viewAny', App\Models\User::class)
+                    <li class="nav-item d-md-none">
                         <a class="nav-link @if (Route::is('users.*')) active @endif" href="{{ route('users.index') }}">
-                            {{ __('Users') }}
+                            {{ __('Users & staff') }}
                         </a>
                     </li>
                 @endcan
                 @can('viewAny', App\Models\Role::class)
-                    <li class="nav-item">
+                    <li class="nav-item d-md-none">
                         <a class="nav-link @if (Route::is('roles.*')) active @endif" href="{{ route('roles.index') }}">
                             {{ __('Roles') }}
                         </a>

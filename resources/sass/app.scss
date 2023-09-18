@@ -3,6 +3,7 @@
 @import '@algolia/autocomplete-theme-classic/dist/theme.css';
 @import 'select2/src/scss/core';
 @import 'select2-bootstrap-5-theme/src/include-all';
+@import 'trumbowyg/dist/ui/sass/trumbowyg';
 
 .aa {
     &-Autocomplete {
@@ -74,5 +75,19 @@
     td, th {
         white-space: nowrap;
         vertical-align: middle;
+    }
+}
+
+.trumbowyg {
+    &-box.trumbowyg {
+        margin: 0;
+    }
+
+    &-details p:not(:last-child) {
+        margin-bottom: 1em;
+    }
+
+    &-box, &-editor {
+        min-height: 10em;
     }
 }

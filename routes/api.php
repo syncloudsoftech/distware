@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('licensing/activate', [Controllers\API\LicensingController::class, 'activate']);
+Route::post('licensing/heartbeat', [Controllers\API\LicensingController::class, 'heartbeat']);
+Route::get('licensing/updates', [Controllers\API\LicensingController::class, 'updates']);

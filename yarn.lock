@@ -154,15 +154,15 @@
     "@algolia/logger-common" "4.19.1"
     "@algolia/requester-common" "4.19.1"
 
-"@alpinejs/collapse@^3.12.3":
-  version "3.12.3"
-  resolved "https://registry.yarnpkg.com/@alpinejs/collapse/-/collapse-3.12.3.tgz#f63426aae7c939321e26cadd06fa09b5b36453c0"
-  integrity sha512-9yMuFeAeVQh+hDhoyx1ArLI5VzgOIHTjLmRrzKsJdHNKsaGNwDm0Bg/dKMyFxGM9HNTp3JDY159+txVYwK+53w==
+"@alpinejs/collapse@^3.13.0":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@alpinejs/collapse/-/collapse-3.13.0.tgz#fd1374d3fdbfbeb4a363f821c5025357573481f8"
+  integrity sha512-nmFhB6VFhl6IqpXukoMjZJ0Qd3V/s5Z0cdp1Fts9AbolyxuWeT2Zl5O9Nk1wZxU6wzw27gqzt3rYGwJmJ2Tp6w==
 
-"@alpinejs/persist@^3.12.3":
-  version "3.12.3"
-  resolved "https://registry.yarnpkg.com/@alpinejs/persist/-/persist-3.12.3.tgz#43f6477e9c55dfa536466e3cb6539cf8ef996885"
-  integrity sha512-TyDzwkFePki6vc+pCdxdNs0cYdBYAJ6W5szXnoQys8iUyshov/6Q9UhKxlXoCE4jvmmXvL+U4vNnnCcnmVD5dg==
+"@alpinejs/persist@^3.13.0":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@alpinejs/persist/-/persist-3.13.0.tgz#f299fbd4a8b25d560add7e0a109501792815db81"
+  integrity sha512-wQtx0VkDBGAthkYDdRnvq9cq2DbYhiPmVwdAEVRfGjFq+nsZu3VyGV0iZv2s9In3LLd7pFjdbQyAoBfO4Qc1cg==
 
 "@esbuild/android-arm64@0.18.17":
   version "0.18.17"
@@ -274,10 +274,38 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.17.tgz#bcb2e042631b3c15792058e189ed879a22b2968b"
   integrity sha512-fGEb8f2BSA3CW7riJVurug65ACLuQAzKq0SSqkY2b2yHHH0MzDfbLyKIGzHwOI/gkHcxM/leuSW6D5w/LMNitA==
 
+"@jridgewell/sourcemap-codec@^1.4.13":
+  version "1.4.15"
+  resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
+  integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
+
 "@popperjs/core@^2.11.6":
   version "2.11.8"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
+
+"@rollup/plugin-inject@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-inject/-/plugin-inject-5.0.3.tgz#0783711efd93a9547d52971db73b2fb6140a67b1"
+  integrity sha512-411QlbL+z2yXpRWFXSmw/teQRMkXcAAC8aYTemc15gwJRpvEVDQwoe+N/HTFD8RFG8+88Bme9DK2V9CVm7hJdA==
+  dependencies:
+    "@rollup/pluginutils" "^5.0.1"
+    estree-walker "^2.0.2"
+    magic-string "^0.27.0"
+
+"@rollup/pluginutils@^5.0.1":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.0.4.tgz#74f808f9053d33bafec0cc98e7b835c9667d32ba"
+  integrity sha512-0KJnIoRI8A+a1dqOYLxH8vBf8bphDmty5QvIm2hqm7oFCFYKCAZWWd2hXgMibaPsNDhI0AtpYfQZJG47pt/k4g==
+  dependencies:
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
+
+"@types/estree@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.1.tgz#aa22750962f3bf0e79d753d3cc067f010c95f194"
+  integrity sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==
 
 "@vue/reactivity@~3.1.1":
   version "3.1.5"
@@ -311,10 +339,10 @@ algoliasearch@^4.19.1:
     "@algolia/requester-node-http" "4.19.1"
     "@algolia/transporter" "4.19.1"
 
-alpinejs@^3.12.3:
-  version "3.12.3"
-  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.12.3.tgz#d7f311b39318c5144e99205ab69557c0d90a552a"
-  integrity sha512-fLz2dfYQ3xCk7Ip8LiIpV2W+9brUyex2TAE7Z0BCvZdUDklJE+n+a8gCgLWzfZ0GzZNZu7HUP8Z0z6Xbm6fsSA==
+alpinejs@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.0.tgz#0334d5f9edb612be33f1f8a7eb3a579b53e4f04e"
+  integrity sha512-7FYR1Yz3evIjlJD1mZ3SYWSw+jlOmQGeQ1QiSufSQ6J84XMQFkzxm6OobiZ928SfqhGdoIp2SsABNsS4rXMMJw==
   dependencies:
     "@vue/reactivity" "~3.1.1"
 
@@ -437,6 +465,11 @@ esbuild@^0.18.10:
     "@esbuild/win32-ia32" "0.18.17"
     "@esbuild/win32-x64" "0.18.17"
 
+estree-walker@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
+  integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
+
 fill-range@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-7.0.1.tgz#1919a6a7c75fe38b2c7c77e5198535da9acdda40"
@@ -551,6 +584,13 @@ laravel-vite-plugin@^0.7.5:
   dependencies:
     picocolors "^1.0.0"
     vite-plugin-full-reload "^1.0.5"
+
+magic-string@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.27.0.tgz#e4a3413b4bab6d98d2becffd48b4a257effdbbf3"
+  integrity sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==
+  dependencies:
+    "@jridgewell/sourcemap-codec" "^1.4.13"
 
 mime-db@1.52.0:
   version "1.52.0"
@@ -694,6 +734,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+trumbowyg@^2.27.3:
+  version "2.27.3"
+  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.27.3.tgz#99373b99aa9ee490e5cb36fc06dbf008a0c7ceca"
+  integrity sha512-mEFhPSrF3dobjnGSSW7BfnmX5Pnv9T4KIoATOHxFOHtb1exE0L2hNPxCr6Bh4iFRJQD4UErleyKCapKf2yImKw==
 
 vite-plugin-full-reload@^1.0.5:
   version "1.0.5"
