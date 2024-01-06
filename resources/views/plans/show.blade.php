@@ -53,9 +53,17 @@
                             <td class="w-100">{{ $plan->name }}</td>
                         </tr>
                         <tr>
-                            <th class="bg-light">{{ __('Months') }}</th>
+                            <th class="bg-light align-text-top">{{ __('Entitlements') }}</th>
                             <td class="w-100">
-                                {{ __(':count months', ['count' => $plan->entitlements['months'] ?? 0]) }}
+                                <ul class="list-unstyled mb-0">
+                                    @foreach (config('fixtures.entitlements') as $key => $name)
+                                        @if (in_array($key, $plan->entitlements))
+                                            <li>{{ config('fixtures.entitlements.'.$key) }}</li>
+                                        @else
+                                            <li class="text-muted"><del>{{ config('fixtures.entitlements.'.$key) }}</del></li>
+                                        @endif
+                                    @endforeach
+                                </ul>
                             </td>
                         </tr>
                         <tr>

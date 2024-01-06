@@ -16,14 +16,21 @@
     </div>
 </div>
 @php
-    $old_entitlements_months = old('entitlements.months', $plan->entitlements['months'] ?? '');
+    $old_entitlements = (array) old('entitlements', $plan->entitlements);
 @endphp
 <div class="row mb-3">
-    <label class="col-sm-4 col-form-label" for="plan-entitlements-months">{{ __('Months') }} <span class="text-danger">&ast;</span></label>
+    <label class="col-sm-4 col-form-label">{{ __('Entitlements') }} <span class="text-danger">&ast;</span></label>
     <div class="col-sm-8">
-        <input class="form-control @error('entitlements.months') is-invalid @enderror" id="plan-entitlements-months" name="entitlements[months]" required type="number" value="{{ $old_entitlements_months }}">
-        @error('entitlements.months')
-            <div class="invalid-feedback">{{ $message }}</div>
+        <div class="mt-sm-2">
+            @foreach (config('fixtures.entitlements') as $key => $name)
+                <div class="form-check">
+                    <input class="form-check-input @error('entitlements') is-invalid @enderror" id="plan-entitlement-{{ $key }}" name="entitlements[]" type="checkbox" value="{{ $key }}" @if (in_array($key, $old_entitlements)) checked @endif>
+                    <label class="form-check-label" for="plan-entitlement-{{ $key }}">{{ $name }}</label>
+                </div>
+            @endforeach
+        </div>
+        @error('entitlements')
+            <div class="invalid-feedback d-inline-block">{{ $message }}</div>
         @enderror
     </div>
 </div>

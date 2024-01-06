@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PlanCreateOrUpdateRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class PlanCreateOrUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'entitlements' => ['required', 'array', 'min:1'],
-            'entitlements.months' => ['required', 'int', 'min:1', 'max:999'],
+            'entitlements.*' => ['required', 'string', Rule::in(array_keys(config('fixtures.entitlements')))],
             'published' => ['sometimes', 'boolean'],
             'notes' => ['nullable', 'string', 'max:65535'],
         ];

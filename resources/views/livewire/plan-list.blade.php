@@ -52,7 +52,7 @@
                         <a class="text-body" href="" wire:click.prevent="sort('name', 'asc')">{{ __('Name') }}</a>
                     @endif
                 </th>
-                <th class="bg-light">{{ __('Months') }}</th>
+                <th class="bg-light">{{ __('Entitlements') }}</th>
                 <th class="bg-light">{{ __('Licenses') }}</th>
                 <th class="bg-light">
                     @if (($order['created_at'] ?? null) === 'asc')
@@ -79,7 +79,7 @@
                             {{ $plan->name }}
                         @endcan
                     </td>
-                    <td>{{ __(':count months', ['count' => $plan->entitlements['months'] ?? 0]) }}</td>
+                    <td>{{ __(':count features', ['count' => count($plan->entitlements)]) }}</td>
                     <td>{{ __(':count licenses', ['count' => $plan->licenses()->count()]) }}</td>
                     <td>{{ Timezone::convertToLocal($plan->created_at) }}</td>
                     <td>

@@ -16,7 +16,7 @@ class PlansTableSeeder extends Seeder
             ->firstOrCreate(
                 ['name' => 'Solo'],
                 [
-                    'entitlements' => ['months' => 1],
+                    'entitlements' => ['feature_1'],
                     'published' => true,
                 ]
             );
@@ -24,7 +24,10 @@ class PlansTableSeeder extends Seeder
             ->firstOrCreate(
                 ['name' => 'Professional'],
                 [
-                    'entitlements' => ['months' => 3],
+                    'entitlements' => [
+                        'feature_1',
+                        'feature_2',
+                    ],
                     'published' => true,
                 ]
             );
@@ -32,7 +35,11 @@ class PlansTableSeeder extends Seeder
             ->firstOrCreate(
                 ['name' => 'Enterprise'],
                 [
-                    'entitlements' => ['months' => 12],
+                    'entitlements' => [
+                        'feature_1',
+                        'feature_2',
+                        'feature_3',
+                    ],
                     'published' => true,
                 ]
             );
@@ -40,7 +47,12 @@ class PlansTableSeeder extends Seeder
             ->firstOrCreate(
                 ['name' => 'Custom'],
                 [
-                    'entitlements' => ['months' => 12 * 10],
+                    'entitlements' => [
+                        'feature_1',
+                        'feature_2',
+                        'feature_3',
+                        'feature_4',
+                    ],
                     'published' => false,
                 ]
             );
