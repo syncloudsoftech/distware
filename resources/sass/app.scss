@@ -1,9 +1,9 @@
-@import 'variables';
-@import 'bootstrap/scss/bootstrap';
-@import '@algolia/autocomplete-theme-classic/dist/theme.css';
-@import 'select2/src/scss/core';
-@import 'select2-bootstrap-5-theme/src/include-all';
-@import 'trumbowyg/dist/ui/sass/trumbowyg';
+@import "variables";
+@import "bootstrap/scss/bootstrap";
+@import "@algolia/autocomplete-theme-classic/dist/theme.css";
+@import "select2/src/scss/core";
+@import "select2-bootstrap-5-theme/src/include-all";
+@import "trumbowyg/dist/ui/sass/trumbowyg";
 
 .aa {
     &-Autocomplete {
@@ -49,7 +49,9 @@
     }
 }
 
-.card-body .pagination { margin-bottom: 0 }
+.card-body .pagination {
+    margin-bottom: 0;
+}
 
 .list-group-item-activity {
     border-left-width: 2px !important;
@@ -62,17 +64,23 @@
 }
 
 .modal {
-    &-footer, &-header { border: none }
+    &-footer,
+    &-header {
+        border: none;
+    }
 
     &-header {
         background: $light;
     }
 }
 
-.select2-selection__choice { background: $light }
+.select2-selection__choice {
+    background: $light;
+}
 
 .table {
-    td, th {
+    td,
+    th {
         white-space: nowrap;
         vertical-align: middle;
     }
@@ -87,7 +95,8 @@
         margin-bottom: 1em;
     }
 
-    &-box, &-editor {
+    &-box,
+    &-editor {
         min-height: 10em;
     }
 }

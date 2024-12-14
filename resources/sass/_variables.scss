@@ -15,15 +15,15 @@ $border-radius-lg: 15px;
 $border-radius-xl: 20px;
 $border-radius-xxl: 25px;
 
-$font-family-sans-serif: 'Roboto', sans-serif;
+$font-family-sans-serif: "Roboto", sans-serif;
 
 $line-height-base: 1.5;
 
 $navbar-light-toggler-border-color: none;
 
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/variables-dark';
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
 
 $s2bs5-clear-icon: $btn-close-bg;
 
