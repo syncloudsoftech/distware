@@ -165,6 +165,36 @@ services:
     volumes:
       - .:/var/www/html
 
+  worker:
+    build:
+      context: .
+      args:
+        FPM_POOL: pool.conf
+        PHP_CONFIG: php.ini
+    command: php /var/www/html/artisan horizon
+    depends_on:
+      - mysql
+      - redis
+    labels:
+      - 'traefik.enable=false'
+    volumes:
+      - .:/var/www/html
+
+  scheduler:
+    build:
+      context: .
+      args:
+        FPM_POOL: pool.conf
+        PHP_CONFIG: php.ini
+    command: php /var/www/html/artisan schedule:run
+    depends_on:
+      - mysql
+      - redis
+    labels:
+      - 'traefik.enable=false'
+    volumes:
+      - .:/var/www/html
+
 volumes:
   meilisearch-data:
   minio-data:
