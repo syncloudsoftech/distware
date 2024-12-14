@@ -15,7 +15,7 @@ RUN apt-get update && \
 
 # install crond & supervisord
 RUN apt-get update && \
-    apt-get install -y cron supervisor
+    apt-get install -y supervisor
 
 # override php config
 COPY .docker/$PHP_CONFIG /usr/local/etc/php/conf.d/99-overrides.ini
@@ -62,9 +62,6 @@ RUN yarn build
 RUN chgrp -R www-data bootstrap/cache storage && \
     chmod -R ug+rwx bootstrap/cache && \
     chmod -R ug+rw storage
-
-# add cron
-RUN echo "* * * * * www-data php /var/www/html/artisan schedule:run > /var/log/cron.log 2>&1" >> /etc/crontab
 
 # run processes via supervisord
 CMD ["sh", "-c", "supervisord -c /etc/supervisor/supervisord.conf --logfile /dev/null --pidfile /dev/null"]
