@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'entitlements' => json_decode(env('PLAN_ENTITLEMENTS', '{}'), true),
+    'entitlements' => json_decode(env('PLAN_ENTITLEMENTS', '{"dummy":"Dummy feature"}'), true),
     'licensing' => [
         'length' => env('CODE_LENGTH', 15),
         'segment_length' => env('CODE_SEGMENT_LENGTH', 6),
