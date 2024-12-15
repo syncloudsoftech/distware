@@ -64,7 +64,7 @@ RUN chgrp -R www-data bootstrap/cache storage && \
     chmod -R ug+rw storage
 
 # add cron
-RUN echo "* * * * * www-data php /var/www/html/artisan schedule:run > /var/log/cron.log 2>&1" >> /etc/crontab
+RUN echo "* * * * * www-data php /var/www/html/artisan schedule:run > /var/log/cron.log 2>&1" > /etc/cron.d/app
 
 # run processes via supervisord
 CMD ["sh", "-c", "supervisord -c /etc/supervisor/supervisord.conf --logfile /dev/null --pidfile /dev/null"]
