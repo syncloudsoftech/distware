@@ -31,6 +31,11 @@ class Machine extends Model
         'last_active_at',
     ];
 
+    public function getShortFingerprintAttribute(): string
+    {
+        return explode('-', $this->fingerprint)[0];
+    }
+
     public function license(): BelongsTo
     {
         return $this->belongsTo(License::class);

@@ -57,6 +57,11 @@ class License extends Model
             ]);
     }
 
+    public function getShortCodeAttribute(): string
+    {
+        return explode('-', $this->code)[0];
+    }
+
     public function plan(): BelongsTo
     {
         return $this->belongsTo(Plan::class);
