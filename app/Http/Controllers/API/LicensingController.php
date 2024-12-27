@@ -101,6 +101,8 @@ class LicensingController extends Controller
         $machine->ip = $request->ip();
         $machine->last_active_at = now();
         $machine->save();
+
+        return LicenseResource::make($license);
     }
 
     public function updates(Request $request)
