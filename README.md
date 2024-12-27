@@ -25,6 +25,9 @@ Before installing, make sure to have [Docker](https://www.docker.com/) installed
 Then simply download or clone the code and run below commands in project folder:
 
 ```shell
+# create sample .env file
+$ cp .env.example .env
+
 # start the services
 $ docker compose up -d
 
@@ -33,9 +36,6 @@ $ docker compose exec web bash
 
 # install dependencies
 $ composer install && yarn install && yarn build
-
-# create sample .env file
-$ php -r "file_exists('.env') || copy('.env.example', '.env');"
 
 # setup NGROK_AUTHTOKEN in .env
 

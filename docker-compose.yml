@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   dockfront:
     image: syncloudsoftech/dockfront
@@ -53,7 +51,6 @@ services:
 
   mysql:
     image: mysql:8
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: distware
       MYSQL_USER: distware
