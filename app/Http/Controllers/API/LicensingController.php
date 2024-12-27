@@ -50,6 +50,9 @@ class LicensingController extends Controller
                     'last_active_at' => now(),
                 ]);
             }
+
+            $license->status = 'active';
+            $license->save();
         } else {
             /** @var Machine|null $machine */
             $machine = $license->machines()->latest()->first();
