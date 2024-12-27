@@ -8,7 +8,9 @@ use App\Http\Resources\UpdateResource;
 use App\Models\License;
 use App\Models\Machine;
 use App\Models\Update;
+use App\Notifications\LicenseActivated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -43,7 +45,7 @@ class LicensingController extends Controller
                 $machine->last_active_at = now();
                 $machine->save();
             } else {
-                $license->machines()->create([
+                $machine = $license->machines()->create([
                     'fingerprint' => $data['machine'],
                     'platform' => $data['platform'],
                     'ip' => $request->ip(),
@@ -53,6 +55,9 @@ class LicensingController extends Controller
 
             $license->status = 'active';
             $license->save();
+
+            Notification::route('slack', config('services.slack.notifications.channel'))
+                ->notify(new LicenseActivated($license, $machine));
         } else {
             /** @var Machine|null $machine */
             $machine = $license->machines()->latest()->first();
