@@ -2,7 +2,6 @@
 
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,12 +51,4 @@ Route::middleware(['auth', 'enabled'])->group(function () {
 Route::middleware('signed')->group(function () {
     Route::get('updates/{update}/installers/{installer}/download', [Controllers\UpdateController::class, 'download'])
         ->name('updates.download');
-});
-
-Route::get('ok', function () {
-    Notification::route('slack', '#testing')
-        ->notify(new App\Notifications\LicenseActivated(
-            App\Models\License::find(20),
-            App\Models\Machine::find(51),
-        ));
 });
