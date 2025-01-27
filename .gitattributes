@@ -11,8 +11,6 @@ Dockerfile export-ignore
 package.json export-ignore
 vite.config.js export-ignore
 yarn.lock export-ignore
-.docker/ export-ignore
-.env* export-ignore
-.git* export-ignore
 /*.md export-ignore
 /*.yml export-ignore
+.* export-ignore
