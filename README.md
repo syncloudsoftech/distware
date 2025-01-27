@@ -26,7 +26,7 @@ Then simply download or clone the code and run below commands in project folder:
 
 ```shell
 # create sample .env file
-$ cp .env.example .env
+$ cp .env.docker .env
 
 # start the services
 $ docker compose up -d
