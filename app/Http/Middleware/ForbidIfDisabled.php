@@ -13,7 +13,7 @@ class ForbidIfDisabled
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string $guard = null): Response
+    public function handle(Request $request, Closure $next, ?string $guard = null): Response
     {
         $user = $request->user($guard);
         if ($user && ! $user->enabled) {

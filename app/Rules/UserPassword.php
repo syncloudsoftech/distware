@@ -16,7 +16,7 @@ class UserPassword implements Rule
      *
      * @return void
      */
-    public function __construct(Authenticatable $user = null)
+    public function __construct(?Authenticatable $user = null)
     {
         $this->user = $user ?: Auth::user();
     }

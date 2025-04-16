@@ -41,7 +41,7 @@ class UpdateController extends Controller
             ]);
         }
 
-        $dom = new Dom();
+        $dom = new Dom;
         $dom->loadStr($data['changelog']);
         $end = $dom->lastChild();
         $end->setAttribute('style', 'margin-bottom: 0;');
@@ -76,7 +76,7 @@ class UpdateController extends Controller
             ]);
         }
 
-        $dom = new Dom();
+        $dom = new Dom;
         $dom->loadStr($data['changelog']);
         $end = $dom->lastChild();
         $end->setAttribute('style', 'margin-bottom: 0;');

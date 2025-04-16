@@ -37,15 +37,17 @@ Route::middleware(['auth', 'enabled'])->group(function () {
 
     Route::resource('licenses', Controllers\LicenseController::class);
     Route::resource('plans', Controllers\PlanController::class);
-    Route::resource('roles', Controllers\RoleController::class)->middleware('password.confirm');
+
+    Route::middleware('password.confirm')->group(function () {
+        Route::resource('roles', Controllers\RoleController::class);
+        Route::resource('users', Controllers\UserController::class);
+    });
 
     Route::resource('updates', Controllers\UpdateController::class);
     Route::post('updates/{update}/installers', [Controllers\UpdateController::class, 'attach'])
         ->name('updates.attach');
     Route::delete('updates/{update}/installers/{installer}', [Controllers\UpdateController::class, 'detach'])
         ->name('updates.detach');
-
-    Route::resource('users', Controllers\UserController::class);
 });
 
 Route::middleware('signed')->group(function () {
