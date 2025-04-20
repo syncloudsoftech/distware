@@ -13,10 +13,10 @@
         @include('flash::message')
         @yield('breadcrumbs')
         <div class="row">
-            <div class="d-none d-lg-block col-lg-3 col-xl-2">
+            <div class="d-none d-lg-block col-lg-4 col-xl-3 col-xxl-2">
                 @include('partials.sidenav')
             </div>
-            <div class="col-12 col-lg-9 col-xl-10">
+            <div class="col-12 col-lg-8 col-xl-9 col-xxl-10">
                 @yield('content')
             </div>
         </div>
