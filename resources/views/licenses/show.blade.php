@@ -127,6 +127,33 @@
             <div class="mb-3">
                 @include('partials.activations', compact('license'))
             </div>
+            <div class="mb-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ __('Share') }}</h5>
+                        <p class="card-text">
+                            {{ __('Send license information on email.') }}
+                        </p>
+                    </div>
+                    <div class="card-body border-top">
+                        <form action="{{ route('licenses.send', $license) }}" class="mb-0" method="post">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="license-send-email" class="form-label">
+                                    {{ __('Email address') }} <span class="text-danger">&ast;</span>
+                                </label>
+                                <input class="form-control @error('email') is-invalid @enderror" id="license-send-email" name="email" type="email" value="{{ old('email', $license->email) }}" required>
+                                @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary">
+                                <i class="fa-solid fa-paper-plane me-1"></i> <span>{{ __('Send') }}</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             @include('partials.auditors', ['model' => $license])
         </div>
     </div>

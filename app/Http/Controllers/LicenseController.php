@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LicenseCreateOrUpdateRequest;
+use App\Http\Requests\LicenseSendRequest;
+use App\Mail\LicenseInfo;
 use App\Models\License;
 use App\Models\Plan;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 use Quarks\Laravel\Locking\LockedVersionMismatchException;
 
@@ -94,5 +97,15 @@ class LicenseController extends Controller
         flash()->info(__('License ":name" has been deleted from system.', ['name' => $license->name]));
 
         return redirect()->route('licenses.index');
+    }
+
+    public function send(LicenseSendRequest $request, License $license)
+    {
+        $this->authorize('view', $license);
+        $data = $request->validated();
+        Mail::to($data['email'])->send(new LicenseInfo($license));
+        flash()->success(__('License ":code" details have been sent to :email.', ['code' => $license->short_code, 'data' => $data['email']]));
+
+        return redirect()->route('licenses.show', $license);
     }
 }

@@ -36,6 +36,8 @@ Route::middleware(['auth', 'enabled'])->group(function () {
     Route::put('profile', [Controllers\ProfileController::class, 'update']);
 
     Route::resource('licenses', Controllers\LicenseController::class);
+    Route::post('licenses/{license}/send', [Controllers\LicenseController::class, 'send'])
+        ->name('licenses.send');
     Route::resource('plans', Controllers\PlanController::class);
 
     Route::middleware('password.confirm')->group(function () {
