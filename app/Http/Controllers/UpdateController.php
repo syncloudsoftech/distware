@@ -146,11 +146,20 @@ class UpdateController extends Controller
 
         $update->increment('downloads');
 
-        return response()
-            ->download(
-                $installer->getPath(),
-                $installer->getCustomProperty('original_file_name'),
-                ['content-type' => $installer->mime_type]
-            );
+        $fileName = $installer->getCustomProperty('original_file_name');
+
+        return response()->stream(function () use ($installer) {
+            $stream = $installer->stream();
+            fpassthru($stream);
+            if (is_resource($stream)) {
+                fclose($stream);
+            }
+        }, 200, [
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Content-Type' => $installer->mime_type,
+            'Content-Length' => $installer->size,
+            'Content-Disposition' => 'attachment; filename="'.$fileName.'"',
+            'Pragma' => 'public',
+        ]);
     }
 }
