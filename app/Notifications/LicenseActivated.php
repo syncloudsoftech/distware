@@ -76,9 +76,6 @@ class LicenseActivated extends Notification
                 $block->field("*Machine:*\n`".$this->machine->short_fingerprint.'`')->markdown();
                 $block->field("*Platform:*\n".$this->machine->platform)->markdown();
             })
-            ->sectionBlock(function (SectionBlock $block) {
-                $block->text("That's it!");
-            })
             ->actionsBlock(function (ActionsBlock $block) {
                 $block->button('See details')
                     ->url(route('licenses.show', $this->license));
