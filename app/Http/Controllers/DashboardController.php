@@ -14,8 +14,8 @@ class DashboardController extends Controller
     {
         $data = $request->validated();
         $query = match ($data['index']) {
-            'licenses' => License::search($data['q'] ?: ''),
-            'users' => User::search($data['q'] ?: ''),
+            'licenses' => License::search($data['q'] ?? ''),
+            'users' => User::search($data['q'] ?? ''),
             default => throw new \InvalidArgumentException(
                 "Search index '{$data['index']}' is unrecognized." // impossible
             )

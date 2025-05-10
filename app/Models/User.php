@@ -77,17 +77,4 @@ class User extends Authenticatable
     {
         return $this->photo ? cdn_url($this->photo) : null;
     }
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array<string, mixed>
-     */
-    public function toSearchableArray(): array
-    {
-        $data = $this->toArray();
-        $data['roles'] = $this->roles()->pluck('name');
-
-        return $data;
-    }
 }

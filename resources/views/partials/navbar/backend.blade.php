@@ -94,8 +94,11 @@
                 source: '{{ route('dashboard.search') }}',
                 placeholder: '{{ __('Type name or code...') }}',
                 item({ item, components, html }) {
-                    console.log(item);
-                    if (item._model === 'App\\Models\\License') {
+                    if (!item) {
+                        return
+                    }
+
+                    if (item._model === {!! json_encode(App\Models\License::class) !!}) {
                         return html`<div class="d-flex flex-row gap-2 align-top">
                             <div class="d-flex flex-column gap-1">
                                 <div class="aa-ItemContentTitle font-monospace">
@@ -108,10 +111,10 @@
                         </div>`;
                     }
 
-                    if (item._model === 'App\\Models\\User') {
+                    if (item._model === {!! json_encode(App\Models\User::class) !!}) {
                         return html`<div class="d-flex flex-row gap-2 align-top">
                             ${item.photo ? (
-                                html`<img alt="${item.name}" src="${item.photo}" width="32" height="32">`
+                                html`<img alt="${item.name}" src="${item.photo}" width="32" height="32" />`
                             ) : (
                                 html`<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
                                     <rect width="100%" height="100%" fill="#eeeeee"></rect>
@@ -129,11 +132,11 @@
                     }
                 },
             }).on('change', function (e, item) {
-                if (item._model === 'App\\Models\\License') {
+                if (item._model === {!! json_encode(App\Models\License::class) !!}) {
                     location.href = route('licenses.show', item.id);
                 }
 
-                if (item._model === 'App\\Models\\User') {
+                if (item._model === {!! json_encode(App\Models\User::class) !!}) {
                     location.href = route('users.show', item.id);
                 }
             });
