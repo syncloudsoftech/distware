@@ -41,11 +41,13 @@ class UpdateController extends Controller
             ]);
         }
 
-        $dom = new Dom;
-        $dom->loadStr($data['changelog']);
-        $end = $dom->lastChild();
-        $end->setAttribute('style', 'margin-bottom: 0;');
-        $data['changelog'] = (string) $dom;
+        if (!empty($data['changelog'])) {
+            $dom = new Dom;
+            $dom->loadStr($data['changelog']);
+            $end = $dom->lastChild();
+            $end->setAttribute('style', 'margin-bottom: 0;');
+            $data['changelog'] = (string) $dom;
+        }
 
         $update = Update::query()->create($data);
         flash()->success(__('Update ":version" has been added to system.', ['version' => $update->version]));
@@ -76,11 +78,13 @@ class UpdateController extends Controller
             ]);
         }
 
-        $dom = new Dom;
-        $dom->loadStr($data['changelog']);
-        $end = $dom->lastChild();
-        $end->setAttribute('style', 'margin-bottom: 0;');
-        $data['changelog'] = (string) $dom;
+        if (!empty($data['changelog'])) {
+            $dom = new Dom;
+            $dom->loadStr($data['changelog']);
+            $end = $dom->lastChild();
+            $end->setAttribute('style', 'margin-bottom: 0;');
+            $data['changelog'] = (string) $dom;
+        }
 
         $data['published'] = $data['published'] ?? false;
 
